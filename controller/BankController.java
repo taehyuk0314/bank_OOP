@@ -28,7 +28,8 @@ public class BankController {
 					+ "9.계좌생성\n"
 					+ "10.계좌리스트\n"
 					+ "11.계좌로그인\n"
-					+ "12.계좌찾기")) {
+					+ "12.계좌찾기"
+					+ "13.입금")) {
 			case "0":
 				JOptionPane.showMessageDialog(null, "종료");
 				return;

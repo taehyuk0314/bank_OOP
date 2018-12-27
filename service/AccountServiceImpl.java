@@ -77,11 +77,9 @@ public class AccountServiceImpl implements AccountService{
 
 	@Override
 	public String findToday() {
-		String today ="";
 		Date date = new Date();
 		SimpleDateFormat jdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		today = jdf.format(date);
-		return today;
+		return  jdf.format(date);
 	}
 /*
  * UPDATE
@@ -91,7 +89,7 @@ public class AccountServiceImpl implements AccountService{
 		for(int i =0;i<list.size();i++) {
 			if(list.get(i).getAccountNum().equals(accountNum)) {
 				if(money>0) {}
-					list.get(i).getMoney() += money;
+					list.get(i).setMoney(list.get(i).getMoney() + money);
 					break;
 			}
 		}
