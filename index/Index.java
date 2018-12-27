@@ -1,10 +1,10 @@
 package index;
 
-import controller.Controller;
+import controller.BankController;
 
 public class Index {
 	public static void main(String[] args) {
-		new Controller().start();
+		new BankController().start();
 	}
 	
 }

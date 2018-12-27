@@ -25,6 +25,6 @@ public class AccountBean {
 	public String toString() {
 		return String.format("계좌번호는:%s\n"
 				+ "만든날짜는:%s\n"
-				+ "잔액%s\n", accountNum,today,money);
+				+ "잔액%d\n",accountNum,today,money);
 	}
 }

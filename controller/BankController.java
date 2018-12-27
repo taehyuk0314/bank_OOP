@@ -2,14 +2,19 @@ package controller;
 
 import javax.swing.JOptionPane;
 
+import domain.AccountBean;
 import domain.MemberBean;
+import service.AccountService;
+import service.AccountServiceImpl;
 import service.MemberService;
 import service.MemberServiceImpl;
 
-public class Controller {
+public class BankController {
 	public void start() {
 		MemberBean mem = null;
+		AccountBean ac = null;
 		MemberService memberService  = new MemberServiceImpl();
+		AccountService accountService = new AccountServiceImpl();
 		while(true) {
 			switch (JOptionPane.showInputDialog("0.종료\n"
 					+ "1.회원가입\n"
@@ -18,8 +23,12 @@ public class Controller {
 					+ "4.회원수\n"
 					+ "5.로그인\n"
 					+ "6.비밀번호변경\n"
-					+ "7.회원탈퇴"
-					+ "8.회원찾기")) {
+					+ "7.회원탈퇴\n"
+					+ "8.회원찾기\n"
+					+ "9.계좌생성\n"
+					+ "10.계좌리스트\n"
+					+ "11.계좌로그인\n"
+					+ "12.계좌찾기")) {
 			case "0":
 				JOptionPane.showMessageDialog(null, "종료");
 				return;
@@ -53,6 +62,22 @@ public class Controller {
 				break;
 			case"8":
 				JOptionPane.showMessageDialog(null,memberService.findByName(JOptionPane.showInputDialog("찾으실 아이디를 입력하세요")) );
+				break;
+			case"9":
+				accountService.infoAccountNum(0);
+				break;
+			case"10":
+				JOptionPane.showMessageDialog(null, accountService.listAccountNum());
+				break;
+			case"11":
+				JOptionPane.showMessageDialog(null, accountService.existAccountNum(JOptionPane.showInputDialog("계좌번호입력"))? "로그인완료" : "로그인실패");
+				break;
+			case"12":
+				JOptionPane.showMessageDialog(null, accountService.findAccountNum(JOptionPane.showInputDialog("계좌입력")));
+				break;
+			case"13":
+				accountService.depositAccount(JOptionPane.showInputDialog("계좌번호"),
+						Integer.parseInt(JOptionPane.showInputDialog("입금금액")));
 				break;
 			}
 		}
